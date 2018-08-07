@@ -1,6 +1,34 @@
-permission: &cNie posiadasz uprawnień!
-playerOnly: &cKomenda dostępna tylko dla graczy.
+permission: "&cNie posiadasz uprawnień!"
+playerOnly: "&cKomenda dostępna tylko dla graczy."
+unsupportedCommand: "&cNie znana komenda. Wpisz &7/smsshop&c."
 helpCommand: |
-    &c/smsshop help - Wyświetla pomoc.
+    "&c/smsshop help - Wyświetla pomoc.
     &c/smsshop account [<nick>] - Wyświetla informacje o koncie gracza.
-accountNotFound: &cGracz &7%target% &cnie posiada konta!
+    &c/smsshop account <nick> <wartość> [set]- Ustawia stan konta gracza.
+    &c/smsshop account <nick> <wartość> add - Dodaje do konta gracza.
+    &c/smsshop account <nick> <wartość> subtract - Zabiera z konta gracza.
+accountNotFound: "&cGracz &7%target% &cnie posiada konta!"
+valueNotNumber: "&cWartość &7%value% &cnie jest liczbą!"
+noNickname: "&cPodaj nick gracza."
+accountModify:
+    set: "&aUstawiono stan konta &7%target% &ana &7%value%&a."
+    add: "&aDodano &7%value% &ado konta &7%target%&a. Wynosi teraz &7%now%&a."
+    subtract: "&aZebrano &7%value% &az konta &7%target%&a. Wynosi teraz &7%now%&a."
+    unsupported: "&cNie znana operacja! Dostępne są &7add&c(+), set&c(=) i &7subtract&c(-)."
+words:
+    default: "domyślna"
+    date: "Data"
+    smsNumber: "Numer sms"
+    order: "Zamówienie"
+    toppingUp: "Doładowanie"
+    other: "Inne"
+    type: "Typ"
+    before: "Przed"
+    after: "Po"
+    executor: "Wykonawca"
+    value: "Wartość"
+    operation: "Operacja"
+    addition: "Dodanie"
+    subtracting: "Odejmowanie"
+    setUp: "Ustawienie"
+noOffers: "&cBrak ofert w tej kategorii."

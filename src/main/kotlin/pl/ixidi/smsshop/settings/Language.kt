@@ -6,7 +6,7 @@ import java.io.File
 
 class Language(lang: String) {
 
-    private val file: File = File(SmsShopPlugin.dataFolder, "language_$lang.yml")
+    private val file: File = File(SmsShopPlugin.instance.dataFolder, "language_$lang.yml")
     private val yaml = FileYamlConfiguration(file)
 
     init {
@@ -14,12 +14,17 @@ class Language(lang: String) {
     }
 
     fun get(key: String, args: Map<String, String>): String {
-        var langString = yaml.getString(key, "$key $args")
+        var langString = get(key)
+
         args.forEach {
-            langString = langString.replace("$%${it.key}%^", it.value)
+            langString = langString.replace("%${it.key}%", it.value)
         }
         return langString
     }
+
+    fun get(key: String): String = yaml.getString(key, key)
+
+    fun getOrNull(key: String): String? = yaml.getString(key)
 
     fun reload() {
         yaml.load()

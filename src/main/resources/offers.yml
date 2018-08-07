@@ -1,0 +1,8 @@
+1:
+  title: "&2Diament"
+  lore: "&eOtzrymujesz diament."
+  category: "default"
+  material: "diamond"
+  price: "1000"
+  commands:
+    - "say Kupiono diament!"

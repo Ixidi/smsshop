@@ -5,7 +5,7 @@ import pl.ixidi.smsshop.SmsShopPlugin
 import pl.ixidi.smsshop.api.Account
 import pl.ixidi.smsshop.base.BasicAccount
 
-private val storage = SmsShopPlugin.accountStorage
+private val storage = SmsShopPlugin.instance.accountStorage
 
 fun Player.account(): Account {
     return storage.get(this.uniqueId) {

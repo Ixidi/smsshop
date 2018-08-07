@@ -8,6 +8,6 @@ fun CommandSender.rawMessage(text: String) {
 }
 
 fun CommandSender.message(key: String, map: Map<String, String> = emptyMap()) {
-    rawMessage(SmsShopPlugin.language.get(key, map))
+    rawMessage(SmsShopPlugin.instance.language.get(key, map))
 }
 

@@ -1,6 +1,7 @@
 package pl.ixidi.smsshop.api
 
 import pl.ixidi.smsshop.api.log.Log
+import pl.ixidi.smsshop.api.offer.Offer
 import pl.ixidi.smsshop.api.storage.Storable
 import java.util.*
 
@@ -17,6 +18,8 @@ interface Account : Storable<UUID> {
     fun subtractMoney(money: Long)
 
     fun hasMoney(money: Long): Boolean
+
+    fun canBuy(offer: Offer): Boolean
 
     fun addLog(log: Log)
 

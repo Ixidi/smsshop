@@ -1,0 +1,12 @@
+1:
+  name: "rangi"
+  title: "&2&lRangi"
+  lore: "&eCzasowe rangi."
+  guiSlot: "1"
+  material: "diamond"
+2:
+  name: "przedmioty"
+  title: "&3&lPrzedmioty"
+  lore: "&eRóżne przedmioty."
+  guiSlot: "4"
+  material: "gold ingot"

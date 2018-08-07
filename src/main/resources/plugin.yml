@@ -2,3 +2,8 @@ name: SmsShop
 version: 1.0
 main: pl.ixidi.smsshop.SmsShopPlugin
 author: Ixidi
+commands:
+  smsshop:
+    description: Admin command.
+  shop:
+    description: Offers command.

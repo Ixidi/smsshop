@@ -1,5 +1,7 @@
 package pl.ixidi.smsshop.api.log
 
+import pl.ixidi.smsshop.SmsShopPlugin
+
 enum class LogType {
 
     ORDER,
@@ -15,4 +17,7 @@ enum class LogType {
         }
     }
 
+    fun langName(): String {
+        return SmsShopPlugin.instance.language.get("words.${name.toLowerCase()}")
+    }
 }

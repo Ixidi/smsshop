@@ -18,9 +18,11 @@ class AccountStorage(folder: File) : SingleObjectStorage<UUID, Account>(folder) 
         yaml.set("name", value.name)
         yaml.set("uuid", value.uuid.toString())
         yaml.set("money", value.money)
+
         val logs = value.logs()
         if (logs.isEmpty())
             return
+
         for ((index, log) in logs.withIndex()) {
             yaml.set("logs.$index.type", log.type.name)
             log.properties().forEach { k, v ->
@@ -72,7 +74,7 @@ class AccountStorage(folder: File) : SingleObjectStorage<UUID, Account>(folder) 
         return account
     }
 
-    fun getByName(name: String, ifNull: () -> Account? = {null}): Account? = getAll().filter { it.name == name }.getOrNull(0)
+    fun getByName(name: String): Account? = getAll().filter { it.name == name }.getOrNull(0)
 
 
 }

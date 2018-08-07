@@ -25,16 +25,20 @@ abstract class SingleObjectStorage<K, V : Storable<K>>(private val folder: File)
     final override fun load() {
         val list = folder.listFiles()
         if (list.isEmpty()) return
+
         for (file in list) {
             if (file.isInvalid()) continue
+
             if (!file.name.endsWith(".yml")) {
                 file.markInvalid()
                 continue
             }
+
             val yaml = prepareYaml(file)
             val value = onLoad(yaml)
             if (value != null) add(value)
         }
+        if (getAll().isEmpty()) ifEmptyAfterLoad()
     }
 
     private fun prepareYaml(file: File): FileYamlConfiguration = FileYamlConfiguration(file)
@@ -45,4 +49,5 @@ abstract class SingleObjectStorage<K, V : Storable<K>>(private val folder: File)
 
     abstract fun onLoad(yaml: FileYamlConfiguration): V?
 
+    protected fun ifEmptyAfterLoad() {}
 }
