@@ -4,8 +4,8 @@ import org.bukkit.Material
 import org.bukkit.configuration.ConfigurationSection
 import pl.ixidi.smsshop.SmsShopPlugin
 import pl.ixidi.smsshop.api.offer.OfferCategory
-import pl.ixidi.smsshop.base.offer.BasicOffer
-import pl.ixidi.smsshop.base.offer.BasicOfferCategory
+import pl.ixidi.smsshop.offer.BasicOffer
+import pl.ixidi.smsshop.offer.BasicOfferCategory
 import pl.ixidi.smsshop.extension.isInvalid
 import pl.ixidi.smsshop.extension.markInvalid
 import pl.ixidi.smsshop.extension.validString
@@ -34,9 +34,12 @@ class OfferCategoryStorage(file: File) : SingleFileStorage<String, OfferCategory
             val name = section.validString("name")
             val title = section.validString("title")
             val lore = section.validString("lore")
-            val guiSlot = section.getInt("guiSlot")
-            val material = MaterialUtils.matchMaterial(section.validString("material")) ?: throw RuntimeException()
-            BasicOfferCategory(name, title, lore, guiSlot, material)
+            var guiSlot = section.getInt("guiSlot")
+            if (guiSlot < 0 || guiSlot > 44) guiSlot = 0
+            val materialSplit = section.validString("material").split(":")
+            val durability = if (materialSplit.size >= 2) materialSplit[1].toShortOrNull() ?: throw RuntimeException() else 0
+            val material = MaterialUtils.matchMaterial(materialSplit[0]) ?: throw RuntimeException()
+            BasicOfferCategory(name, title, lore, guiSlot, material, durability)
         } catch (ex: Exception) {
             section.markInvalid()
             return null

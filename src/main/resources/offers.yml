@@ -1,8 +1,34 @@
 1:
-  title: "&2Diament"
-  lore: "&eOtzrymujesz diament."
-  category: "default"
+  title: "&b&lDiamenty x10"
+  lore: "&eOtrzymujesz 10 diamentów."
+  category: "przedmioty"
   material: "diamond"
-  price: "1000"
+  price: 400
   commands:
-    - "say Kupiono diament!"
+    - "give %player% diamond 10"
+    - "say %player% zakupił 10 diamentów!"
+2:
+  title: "&a&lSzmaragdy x30"
+  lore: "&eOtrzymujesz 30 szmaragdów."
+  category: "przedmioty"
+  material: "emerald"
+  price: 1000
+  commands:
+    - "give %player% emerald 30"
+    - "say %player% zakupił 30 szmaragdów!"
+3:
+  title: "&6&lDzień"
+  lore: "&eZmienia pore dnia na dzień."
+  category: "inne"
+  material: "wool:5"
+  price: 800
+  commands:
+    - "time set day"
+4:
+  title: "&5&lNoc"
+  lore: "&eZmienia pore dnia na noc."
+  category: "inne"
+  material: "wool:8"
+  price: 800
+  commands:
+    - "time set night"

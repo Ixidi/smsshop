@@ -2,8 +2,8 @@ package pl.ixidi.smsshop.storage
 
 import pl.ixidi.smsshop.api.Account
 import pl.ixidi.smsshop.api.log.LogType
-import pl.ixidi.smsshop.base.BasicAccount
-import pl.ixidi.smsshop.base.BasicLog
+import pl.ixidi.smsshop.account.BasicAccount
+import pl.ixidi.smsshop.account.BasicLog
 import pl.ixidi.smsshop.extension.isInvalid
 import pl.ixidi.smsshop.extension.markInvalid
 import pl.ixidi.smsshop.extension.validString

@@ -1,4 +1,4 @@
-package pl.ixidi.smsshop.base
+package pl.ixidi.smsshop.account
 
 import pl.ixidi.smsshop.api.Account
 import pl.ixidi.smsshop.api.log.Log

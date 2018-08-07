@@ -4,6 +4,6 @@ import org.bukkit.Material
 
 object MaterialUtils {
 
-    fun matchMaterial(name: String): Material? = Material.matchMaterial(name.toUpperCase().replaceAfter(" ", "_"))
+    fun matchMaterial(name: String): Material? = Material.matchMaterial(name.toUpperCase().replace(" ", "_"))
 
 }

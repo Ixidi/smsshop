@@ -1,4 +1,4 @@
-package pl.ixidi.smsshop.base.offer
+package pl.ixidi.smsshop.offer
 
 import org.bukkit.Material
 import pl.ixidi.smsshop.api.offer.Offer
@@ -11,7 +11,8 @@ data class BasicOffer(
         override val category: OfferCategory,
         override val material: Material,
         override val price: Long,
-        override val commands: List<String>
+        override val commands: List<String>,
+        override val durability: Short = 0
 ) : Offer {
     override fun key(): Int = id
 }

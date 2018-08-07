@@ -7,6 +7,8 @@ interface GuiButton {
 
     val material: Material
 
+    val durability: Short
+
     val name: String
 
     val lore: List<String>

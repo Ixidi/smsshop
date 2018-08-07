@@ -19,4 +19,7 @@ abstract class AbstractStorage<K, V : Storable<K>> : Storage<K, V> {
 
     final override fun getAll(): List<V> = map.values.toList()
 
+    final override fun clear() {
+        map.clear()
+    }
 }

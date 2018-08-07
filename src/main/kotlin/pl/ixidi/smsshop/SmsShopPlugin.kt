@@ -100,6 +100,9 @@ class SmsShopPlugin : JavaPlugin() {
     }
 
     fun reload(type: ReloadType) {
+        server.onlinePlayers.forEach {
+            if (it.inventory != it.openInventory) it.closeInventory()
+        }
         when (type) {
             ReloadType.SETTINGS -> settings.reload()
 
@@ -115,6 +118,8 @@ class SmsShopPlugin : JavaPlugin() {
             ReloadType.ALL -> {
                 settings.reload()
                 language = Language(settings.getString("lang", "PL"))
+                categoryStorage.clear()
+                offerStorage.clear()
                 categoryStorage.load()
                 offerStorage.load()
             }

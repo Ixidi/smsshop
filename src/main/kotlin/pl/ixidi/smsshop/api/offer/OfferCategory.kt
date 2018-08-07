@@ -15,4 +15,5 @@ interface OfferCategory : Storable<String> {
 
     val material: Material
 
+    val durability: Short
 }

@@ -1,9 +1,11 @@
 permission: "&cNie posiadasz uprawnień!"
 playerOnly: "&cKomenda dostępna tylko dla graczy."
+reloaded: "&aPrzeładowano plik konfiguracyjny, językowy, oferty i kategorie."
 unsupportedCommand: "&cNie znana komenda. Wpisz &7/smsshop&c."
 helpCommand: |
-    "&c/smsshop help - Wyświetla pomoc.
-    &c/smsshop account [<nick>] - Wyświetla informacje o koncie gracza.
+    &c/smsshop help - Wyświetla pomoc.
+    &c/smsshop reload - Przeładowuje plugin.
+    &c/smsshop account <nick> - Wyświetla informacje o koncie gracza.
     &c/smsshop account <nick> <wartość> [set]- Ustawia stan konta gracza.
     &c/smsshop account <nick> <wartość> add - Dodaje do konta gracza.
     &c/smsshop account <nick> <wartość> subtract - Zabiera z konta gracza.
@@ -21,14 +23,28 @@ words:
     smsNumber: "Numer sms"
     order: "Zamówienie"
     toppingUp: "Doładowanie"
-    other: "Inne"
+    admin: "Administracyjna"
     type: "Typ"
     before: "Przed"
     after: "Po"
     executor: "Wykonawca"
     value: "Wartość"
+    price: "Cena"
+    offer: "Oferta"
     operation: "Operacja"
     addition: "Dodanie"
     subtracting: "Odejmowanie"
     setUp: "Ustawienie"
 noOffers: "&cBrak ofert w tej kategorii."
+offer: |
+    &2Kategoria: &7%category%
+    &2Cena: &7%price%
+
+    &a%lore%
+noMoney: "&cNie masz wystarczającej ilości pieniędzy. &7%money%&c/&7%price%"
+areYouSure: "&7Czy jesteś pewien?"
+yesBuy: "&2&lTak, kupuje."
+noBuy: "&4&lNie, rezygnuje."
+success: "&aZakupiono %offer% &aza &7%price%&a."
+clickToTopUp: "&eKliknij aby doładować."
+transactions: "&7&lTransakcje"

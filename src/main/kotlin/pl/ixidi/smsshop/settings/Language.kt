@@ -1,6 +1,7 @@
 package pl.ixidi.smsshop.settings
 
 import pl.ixidi.smsshop.SmsShopPlugin
+import pl.ixidi.smsshop.extension.parseArgs
 import pl.ixidi.smsshop.util.FileYamlConfiguration
 import java.io.File
 
@@ -13,14 +14,7 @@ class Language(lang: String) {
         reload()
     }
 
-    fun get(key: String, args: Map<String, String>): String {
-        var langString = get(key)
-
-        args.forEach {
-            langString = langString.replace("%${it.key}%", it.value)
-        }
-        return langString
-    }
+    fun get(key: String, args: Map<String, String>): String = get(key).parseArgs(args)
 
     fun get(key: String): String = yaml.getString(key, key)
 

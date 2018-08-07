@@ -3,7 +3,7 @@ package pl.ixidi.smsshop.storage
 import org.bukkit.configuration.ConfigurationSection
 import pl.ixidi.smsshop.SmsShopPlugin
 import pl.ixidi.smsshop.api.offer.Offer
-import pl.ixidi.smsshop.base.offer.BasicOffer
+import pl.ixidi.smsshop.offer.BasicOffer
 import pl.ixidi.smsshop.extension.markInvalid
 import pl.ixidi.smsshop.extension.validString
 import pl.ixidi.smsshop.storage.base.SingleFileStorage
@@ -29,10 +29,12 @@ class OfferStorage(file: File) : SingleFileStorage<Int, Offer>(file) {
             val category = SmsShopPlugin.instance.categoryStorage.get(section.validString("category")) {
                 OfferCategoryStorage.DEFAULT
             }
-            val material = MaterialUtils.matchMaterial(section.validString("material")) ?: throw RuntimeException()
+            val materialSplit = section.validString("material").split(":")
+            val durability = if (materialSplit.size >= 2) materialSplit[1].toShortOrNull() ?: throw RuntimeException() else 0
+            val material = MaterialUtils.matchMaterial(materialSplit[0]) ?: throw RuntimeException()
             val price = section.getLong("price")
             val commands = section.getStringList("commands") ?: throw RuntimeException()
-            BasicOffer(getAll().size + 1, title, lore, category!!, material, price, commands)
+            BasicOffer(getAll().size + 1, title, lore, category!!, material, price, commands, durability)
         } catch (ex: Exception) {
             section.markInvalid()
             return null

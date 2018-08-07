@@ -1,5 +1,5 @@
 name: SmsShop
-version: 1.0
+version: dev1.0
 main: pl.ixidi.smsshop.SmsShopPlugin
 author: Ixidi
 commands:

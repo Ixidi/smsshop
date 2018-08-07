@@ -19,4 +19,6 @@ interface Offer : Storable<Int> {
 
     val id: Int
 
+    val durability: Short
+
 }

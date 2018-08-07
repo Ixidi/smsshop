@@ -1,11 +1,10 @@
 package pl.ixidi.smsshop.listener
 
-import org.bukkit.Bukkit
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerJoinEvent
 import pl.ixidi.smsshop.SmsShopPlugin
-import pl.ixidi.smsshop.base.BasicAccount
+import pl.ixidi.smsshop.account.BasicAccount
 
 class PlayerJoinListener : Listener {
 

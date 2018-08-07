@@ -1,2 +1,2 @@
-lang: PL
-moneySymbol: "$"
+lang: "PL"
+dateFormat: "dd.MM.yyyy HH:mm"

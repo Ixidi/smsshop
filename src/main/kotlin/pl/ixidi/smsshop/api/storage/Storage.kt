@@ -14,5 +14,6 @@ interface Storage<K, V : Storable<K>> {
 
     fun remove(key: K)
 
+    fun clear()
 
 }

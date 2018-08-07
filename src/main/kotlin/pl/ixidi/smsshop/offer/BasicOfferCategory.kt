@@ -1,4 +1,4 @@
-package pl.ixidi.smsshop.base.offer
+package pl.ixidi.smsshop.offer
 
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
@@ -11,7 +11,8 @@ data class BasicOfferCategory(
         override val title: String,
         override val lore: String,
         override val guiSlot: Int,
-        override val material: Material
+        override val material: Material,
+        override val durability: Short = 0
 ) : OfferCategory {
 
     override fun key(): String = name.toLowerCase()
