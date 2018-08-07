@@ -1,0 +1,4 @@
+name: SmsShop
+version: 1.0
+main: pl.ixidi.smsshop.SmsShopPlugin
+author: Ixidi

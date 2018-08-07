@@ -1,7 +1,8 @@
 package pl.ixidi.smsshop.storage.base
 
 import pl.ixidi.smsshop.api.storage.Storable
-import pl.ixidi.smsshop.extension.invalid
+import pl.ixidi.smsshop.extension.isInvalid
+import pl.ixidi.smsshop.extension.markInvalid
 import pl.ixidi.smsshop.util.FileYamlConfiguration
 import java.io.File
 import java.nio.file.NotDirectoryException
@@ -25,9 +26,9 @@ abstract class SingleObjectStorage<K, V : Storable<K>>(private val folder: File)
         val list = folder.listFiles()
         if (list.isEmpty()) return
         for (file in list) {
-            if (file.name.startsWith("invalid")) continue
+            if (file.isInvalid()) continue
             if (!file.name.endsWith(".yml")) {
-                file.invalid()
+                file.markInvalid()
                 continue
             }
             val yaml = prepareYaml(file)

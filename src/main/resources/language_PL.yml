@@ -1,0 +1,6 @@
+permission: &cNie posiadasz uprawnień!
+playerOnly: &cKomenda dostępna tylko dla graczy.
+helpCommand: |
+    &c/smsshop help - Wyświetla pomoc.
+    &c/smsshop account [<nick>] - Wyświetla informacje o koncie gracza.
+accountNotFound: &cGracz &7%target% &cnie posiada konta!

@@ -4,7 +4,8 @@ import pl.ixidi.smsshop.api.Account
 import pl.ixidi.smsshop.api.log.LogType
 import pl.ixidi.smsshop.base.BasicAccount
 import pl.ixidi.smsshop.base.BasicLog
-import pl.ixidi.smsshop.extension.invalid
+import pl.ixidi.smsshop.extension.isInvalid
+import pl.ixidi.smsshop.extension.markInvalid
 import pl.ixidi.smsshop.extension.validString
 import pl.ixidi.smsshop.storage.base.SingleObjectStorage
 import pl.ixidi.smsshop.util.FileYamlConfiguration
@@ -29,6 +30,8 @@ class AccountStorage(folder: File) : SingleObjectStorage<UUID, Account>(folder) 
     }
 
     override fun onLoad(yaml: FileYamlConfiguration): Account? {
+        if (yaml.file.isInvalid()) return null
+
         val account = try {
             val uuid = UUID.fromString(yaml.validString("uuid"))
             val name = yaml.validString("name")
@@ -36,7 +39,7 @@ class AccountStorage(folder: File) : SingleObjectStorage<UUID, Account>(folder) 
             BasicAccount(uuid, name, money)
         } catch (ex: Exception) {
             ex.printStackTrace()
-            yaml.file.invalid()
+            yaml.file.markInvalid()
             return null
         }
 
@@ -68,6 +71,8 @@ class AccountStorage(folder: File) : SingleObjectStorage<UUID, Account>(folder) 
 
         return account
     }
+
+    fun getByName(name: String, ifNull: () -> Account? = {null}): Account? = getAll().filter { it.name == name }.getOrNull(0)
 
 
 }

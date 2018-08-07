@@ -7,10 +7,6 @@ import pl.ixidi.smsshop.base.BasicAccount
 
 private val storage = SmsShopPlugin.accountStorage
 
-fun Player.message(text: String) {
-    this.sendMessage(text.color())
-}
-
 fun Player.account(): Account {
     return storage.get(this.uniqueId) {
         val account = BasicAccount(this.uniqueId, this.name)
